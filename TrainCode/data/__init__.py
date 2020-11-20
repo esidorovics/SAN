@@ -35,6 +35,12 @@ class Data:
                     args,
                     train=False
                 )
+        elif args.data_test in ['lala']:
+                module_test = import_module('data.benchmark_lala')
+                testset = getattr(module_test, 'Benchmark')(
+                    args,
+                    train=False
+                )
 
         else:
             module_test = import_module('data.' +  args.data_test.lower())

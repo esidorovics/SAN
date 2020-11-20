@@ -125,7 +125,7 @@ class SRData(data.Dataset):
             lr, hr = common.get_patch(
                 lr, hr, patch_size, scale, multi_scale=multi_scale
             )
-            lr, hr = common.augment([lr, hr])
+            lr, hr = common.augment([lr, hr], hflip=False)
             lr = common.add_noise(lr, self.args.noise)
         else:
             ih, iw = lr.shape[0:2]
